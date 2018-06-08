@@ -1,0 +1,45 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disabled="false" id="7b73cfa1-0065-4b8a-b418-c345e5954cb8">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" comment="Get projects" id="5a2b8225-6605-423e-989a-56fe2dd3954c">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="15f4fadf-eb20-428f-9746-f1aa52c0468a" serviceId="nabu.misc.configuration.Services.configurations" resultName="result1e4d3b7f381f45c0a91e10a3f952abba" invocationOrder="1" temporaryMapping="true" y="70" x="29">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="d7851246-8200-419f-a273-95ae8d35ddef" fixedValue="true" optional="false" mask="false">
+				<from>nabu.testing.runner.providers.testProjectProvider</from>
+				<to>typeId</to>
+			</steps>
+			<asynchronous>false</asynchronous>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="eea086a5-9a03-4a89-848e-d1559dcc7e32" fixedValue="false" optional="false" mask="false">
+			<from>result1e4d3b7f381f45c0a91e10a3f952abba/configurations</from>
+			<to>testProjects</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" comment="Get this project" id="e3ea1d57-564d-48b3-ac63-6a2e4e87d070">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="b4642a94-865a-492f-9d00-8155017208e9" fixedValue="false" optional="false" mask="false">
+			<from>testProjects[testProjectId = /input/testProjectId]</from>
+			<to>testProject</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" label="!testProject" id="a61fcead-e777-4ff1-926e-1d9351b482fa">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="900276fe-c385-4cab-8d7c-b654840e62af" fixedValue="false" optional="false" mask="false">
+			<from>input/testProjectId</from>
+			<to>testProject/testProjectId</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="11993fec-7e2e-42da-a2d0-f01b27d76c52">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="1899a034-15b9-42a2-a8d1-b17961332d43" serviceId="nabu.testing.runner.utils.run" resultName="result6658b513a83d4eb9ae9353a76cc83740" invocationOrder="0" temporaryMapping="true" y="75" x="58">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="999d052a-e452-465b-9859-5e2516724eae" fixedValue="false" optional="false" mask="false">
+				<from>testProject</from>
+				<to>testProject</to>
+			</steps>
+			<asynchronous>true</asynchronous>
+			<target>nabu.testing.runner.artifacts.sharedExecutor</target>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="a3138505-2b92-4e4d-8001-bc0042fd8209" fixedValue="false" optional="false" mask="false">
+			<from>result6658b513a83d4eb9ae9353a76cc83740/results</from>
+			<to>output/results</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="448d3a06-9869-42d7-9b41-bc66220fd9ec" fixedValue="false" optional="false" mask="false">
+			<from>result6658b513a83d4eb9ae9353a76cc83740/summary</from>
+			<to>output/summary</to>
+		</steps>
+	</steps>
+</sequence>

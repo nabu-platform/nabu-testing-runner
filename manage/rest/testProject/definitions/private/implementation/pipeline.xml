@@ -1,0 +1,6 @@
+<structure interface="$self:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="projects" type="java.lang.String"/>
+    <structure definition="nabu.testing.runner.manage.types.projectDefinition" name="definition"/>
+</structure>

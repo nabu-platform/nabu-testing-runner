@@ -1,0 +1,5 @@
+<structure name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure definition="nabu.testing.runner.providers.testProjectProvider" maxOccurs="unbounded" minOccurs="0" name="testProjects"/>
+</structure>

@@ -1,0 +1,4 @@
+<structure name="testCaseList">
+    <structure collectionName="TestCases" definition="nabu.testing.runner.types.model.runner.TestCase" maxOccurs="unbounded" minOccurs="0" name="testCases" namespace="nabu.testing.runner.types.model.runner"/>
+    <structure definition="nabu.services.jdbc.types.Page" minOccurs="0" name="page"/>
+</structure>

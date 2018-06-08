@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restInterface>
+    <method>GET</method>
+    <path>/case/{testCaseId}/validation</path>
+    <queryParameters>orderBy, limit, offset, severity</queryParameters>
+    <role>manager</role>
+    <permissionAction>testing.read</permissionAction>
+    <output>nabu.testing.runner.manage.types.testValidationList</output>
+    <lenient>false</lenient>
+    <webApplicationId>false</webApplicationId>
+    <language>false</language>
+    <allowFormBinding>false</allowFormBinding>
+    <caseInsensitive>false</caseInsensitive>
+    <cache>false</cache>
+</restInterface>

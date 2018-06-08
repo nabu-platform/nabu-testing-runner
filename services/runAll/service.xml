@@ -1,0 +1,28 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disabled="false" id="f870ab18-9d9b-42bd-9c35-4f559a0c5990">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" comment="Get projects" id="5a2b8225-6605-423e-989a-56fe2dd3954c">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="15f4fadf-eb20-428f-9746-f1aa52c0468a" serviceId="nabu.misc.configuration.Services.configurations" resultName="result1e4d3b7f381f45c0a91e10a3f952abba" invocationOrder="1" temporaryMapping="true" y="70" x="29">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="d7851246-8200-419f-a273-95ae8d35ddef" fixedValue="true" optional="false" mask="false">
+				<from>nabu.testing.runner.providers.testProjectProvider</from>
+				<to>typeId</to>
+			</steps>
+			<asynchronous>false</asynchronous>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="4f8feeea-4b2b-4336-9958-368604ac3bae" fixedValue="false" optional="false" mask="false">
+			<from>result1e4d3b7f381f45c0a91e10a3f952abba/configurations</from>
+			<to>testProjects</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For" disabled="false" id="61232d8d-8ae4-431c-ae1a-f7301dec3f07" variable="testProject">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="14dcf5c4-8098-4173-ad54-24b7e51331cb">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="0389c453-ded0-41ce-a17f-a047fa474fe0" serviceId="nabu.testing.runner.utils.run" resultName="result69e11206131643b59a2bae2cd1908681" invocationOrder="0" temporaryMapping="true" y="65" x="35">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="88abdd26-8ba2-43ed-9ef9-9322b44994a5" fixedValue="false" optional="false" mask="false">
+					<from>testProject</from>
+					<to>testProject</to>
+				</steps>
+				<asynchronous>true</asynchronous>
+				<target>nabu.testing.runner.artifacts.sharedExecutor</target>
+			</steps>
+		</steps>
+		<query>testProjects</query>
+	</steps>
+</sequence>

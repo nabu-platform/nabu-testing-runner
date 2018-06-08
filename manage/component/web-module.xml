@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <path>/api/testing/v1</path>
+    <webFragments>nabu.testing.runner.manage.rest.testCase.testValidation.list</webFragments>
+    <webFragments>nabu.testing.runner.manage.rest.testCase.list</webFragments>
+    <webFragments>nabu.testing.runner.manage.rest.testProject.definitions</webFragments>
+    <webFragments>nabu.testing.runner.manage.rest.testProject.list</webFragments>
+    <webFragments>nabu.testing.runner.manage.rest.testProject.run</webFragments>
+</webModule>

@@ -1,0 +1,7 @@
+<jdbcService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<outputDefinition>nabu.testing.runner.types.model.runner.TestValidation</outputDefinition>
+	<sql>select *
+from ~test_validations tv
+where (:testCaseId is null or tv.test_case_id = :testCaseId)
+	and (:severity is null or tv.severity = :severity)</sql>
+</jdbcService>

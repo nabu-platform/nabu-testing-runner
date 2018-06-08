@@ -1,0 +1,4 @@
+<structure name="testProjectList">
+    <structure collectionName="TestProjects" definition="nabu.testing.runner.types.model.runner.TestProject" maxOccurs="unbounded" minOccurs="0" name="testProjects" namespace="nabu.testing.runner.types.model.runner"/>
+    <structure definition="nabu.services.jdbc.types.Page" minOccurs="0" name="page"/>
+</structure>

@@ -1,0 +1,4 @@
+<structure name="testValidationList">
+    <structure collectionName="TestValidations" definition="nabu.testing.runner.types.model.runner.TestValidation" maxOccurs="unbounded" minOccurs="0" name="testValidations" namespace="nabu.testing.runner.types.model.runner"/>
+    <structure definition="nabu.services.jdbc.types.Page" minOccurs="0" name="page"/>
+</structure>

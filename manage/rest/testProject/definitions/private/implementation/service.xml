@@ -1,0 +1,61 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disabled="false" id="963166a4-aa3a-4154-884e-c94b9ba33d0c">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" comment="Get projects" id="1183bd5b-ca5f-4280-b4a1-ddb38d795f1d">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="2fdac35e-c726-4895-a586-c68282401bb8" serviceId="nabu.utils.reflection.Node.listByType" resultName="resultecb04ff5fce949928eb61add7d3c447e" invocationOrder="0" temporaryMapping="true" y="114" x="171">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="918935bd-09f7-4539-99d1-920911fd308b" fixedValue="true" optional="false" mask="false">
+				<from>be.nabu.eai.module.services.glue.testing.project.GlueTestProjectArtifact</from>
+				<to>type</to>
+			</steps>
+			<asynchronous>false</asynchronous>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="d622c9c0-fa1c-465a-817a-d1d87bdca6f4" fixedValue="false" optional="false" mask="false">
+			<from>resultecb04ff5fce949928eb61add7d3c447e/nodes/id</from>
+			<to>projects</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For" disabled="false" id="fd142b23-c48f-46ae-b49d-3d4a62c93017" variable="project">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="2dc5283a-cdac-4fff-a2e8-be72e85d9add">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="2da2e5dd-a118-4895-a728-c0117d50726c" fixedValue="false" optional="false" mask="false">
+				<from>project</from>
+				<to>definition/name</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="8fac1150-4a85-4871-830d-29ecf7ee839c" serviceId="nabu.testing.runner.database.testProject.search" resultName="result7145fdda4b5e4a1ab619064a52b7c732" invocationOrder="0" temporaryMapping="true" y="184" x="45">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="11d07ed6-faf1-4f70-9846-e4ea79c6485e" fixedValue="false" optional="false" mask="false">
+					<from>project</from>
+					<to>parameters/project</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="344a410c-3300-4755-a1f4-c8894327c833" fixedValue="true" optional="false" mask="false">
+					<from>created desc</from>
+					<to>orderBy[0]</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="1e035faa-d257-4b8d-85ae-eca664d9899f" fixedValue="true" optional="false" mask="false">
+					<from>1</from>
+					<to>limit</to>
+				</steps>
+				<asynchronous>false</asynchronous>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="9a1bab5e-d971-413d-8d6b-d8829d43c804" fixedValue="false" optional="false" mask="false">
+				<from>result7145fdda4b5e4a1ab619064a52b7c732/results[0]</from>
+				<to>definition/lastRun</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="8cf5b985-e85c-4dee-b937-59ef5cfc5f49">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="ad32553a-a082-4dbd-a0d4-5d173fbcf54a" serviceId="nabu.utils.List.add" resultName="resultc77a9eaf71244c27a8cb846e63cced27" invocationOrder="0" temporaryMapping="true" y="96" x="134">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="23544776-ac11-4531-8956-72bed80d2c57" fixedValue="false" optional="false" mask="false">
+					<from>definition</from>
+					<to>object</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="814fe050-c9c0-4a0c-8978-0d9a95ab8901" fixedValue="false" optional="false" mask="false">
+					<from>output/content/definitions</from>
+					<to>list</to>
+				</steps>
+				<asynchronous>false</asynchronous>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="cb4ba7f3-eef3-4489-a633-789ef926f38b" fixedValue="false" optional="false" mask="false">
+				<from>resultc77a9eaf71244c27a8cb846e63cced27/list</from>
+				<to>output/content/definitions</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Drop" disabled="false" id="5364df76-cda6-467c-a1a2-e2a643d7ccef" path="definition" xsi:nil="true"/>
+		</steps>
+		<query>projects</query>
+	</steps>
+</sequence>

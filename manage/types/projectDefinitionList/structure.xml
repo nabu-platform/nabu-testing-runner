@@ -1,0 +1,3 @@
+<structure name="definitionList">
+    <structure definition="nabu.testing.runner.manage.types.projectDefinition" maxOccurs="unbounded" minOccurs="0" name="definitions"/>
+</structure>

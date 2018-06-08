@@ -1,0 +1,8 @@
+<jdbcService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<outputDefinition>nabu.testing.runner.types.model.runner.TestProject</outputDefinition>
+	<sql>select *
+from ~test_projects tp
+where (:project is null or tp.name = :project)
+	and (:after is null or tp.started &gt;= :after)
+	and (:before is null or tp.started &lt; :before)</sql>
+</jdbcService>

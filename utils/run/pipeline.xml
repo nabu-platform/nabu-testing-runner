@@ -1,0 +1,16 @@
+<structure name="pipeline">
+    <structure name="input">
+        <structure definition="nabu.testing.runner.providers.testProjectProvider" name="testProject"/>
+    </structure>
+    <structure name="output">
+        <structure definition="be.nabu.glue.impl.formatted.FormattedScriptResult" maxOccurs="unbounded" minOccurs="0" name="results"/>
+        <structure definition="be.nabu.glue.impl.formatted.FormattedDashboard" minOccurs="0" name="summary"/>
+    </structure>
+    <structure collectionName="TestProjects" definition="nabu.testing.runner.types.model.runner.TestProject" name="project" namespace="nabu.testing.runner.types.model.runner"/>
+    <structure collectionName="TestCases" definition="nabu.testing.runner.types.model.runner.TestCase" name="case" namespace="nabu.testing.runner.types.model.runner"/>
+    <structure collectionName="TestValidations" definition="nabu.testing.runner.types.model.runner.TestValidation" name="validation" namespace="nabu.testing.runner.types.model.runner"/>
+    <structure collectionName="TestCases" definition="nabu.testing.runner.types.model.runner.TestCase" maxOccurs="unbounded" minOccurs="0" name="cases" namespace="nabu.testing.runner.types.model.runner"/>
+    <structure collectionName="TestValidations" definition="nabu.testing.runner.types.model.runner.TestValidation" maxOccurs="unbounded" minOccurs="0" name="validations" namespace="nabu.testing.runner.types.model.runner"/>
+    <structure definition="nabu.testing.runner.providers.testProjectProvider" maxOccurs="unbounded" minOccurs="0" name="testProjects"/>
+    <field minOccurs="0" name="serviceContext" type="java.lang.String"/>
+</structure>
