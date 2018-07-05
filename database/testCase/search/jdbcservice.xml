@@ -3,5 +3,5 @@
 	<sql>select *
 from ~test_cases tc
 where (:projectId is null or tc.test_project_id = :projectId)
-	and (:name is null or lower(tc.name) like '%' || lower(:name) || '%')</sql>
+	and (:name is null or lower(tc.namespace || '.' || tc.name) like '%' || lower(:name) || '%')</sql>
 </jdbcService>
