@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataModel>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.testing.runner.types.model.runner.TestProject</type>
+        <x>215</x>
+        <y>181</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.testing.runner.types.model.runner.TestValidation</type>
+        <x>1283</x>
+        <y>432</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.testing.runner.types.model.runner.TestCase</type>
+        <x>723</x>
+        <y>115</y>
+    </entries>
+</dataModel>
